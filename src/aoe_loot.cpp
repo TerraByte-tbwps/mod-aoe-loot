@@ -455,7 +455,7 @@ std::pair<Loot*, bool> AoeLootCommandScript::GetLootObject(Player* player, Objec
     }
     else if (lguid.IsItem())
     {
-        Item* pItem = player->GetItemByGuid(lguid);
+        ::Item* pItem = player->GetItemByGuid(lguid);
         if (!pItem)
         {
             DebugMessage(player, fmt::format("Failed to find item {}", lguid.ToString()));
