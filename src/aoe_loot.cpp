@@ -20,7 +20,6 @@
 #include "ObjectMgr.h"
 
 using namespace Acore::ChatCommands;
-using namespace WorldPackets;
 
 std::map<uint64, bool> AoeLootCommandScript::playerAoeLootEnabled;
 std::map<uint64, bool> AoeLootCommandScript::playerAoeLootDebug;
@@ -30,7 +29,7 @@ std::map<uint64, bool> AoeLootCommandScript::playerAoeLootDebug;
 
 // >>>>> This is the entry point. This packet triggers the AOE loot system. <<<<< //
 
-bool AoeLootManager::CanPacketReceive(WorldSession* session, WorldPacket& packet)
+bool AoeLootManager::CanPacketReceive(WorldSession* session, WorldPacket const& packet)
 {
     if (packet.GetOpcode() == CMSG_LOOT)
     {
