@@ -27,7 +27,7 @@ class AoeLootManager : public ServerScript
 public:
     AoeLootManager() : ServerScript("AoeLootManager") {}
     
-    bool CanPacketReceive(WorldSession* session, WorldPacket& packet) override;
+    bool CanPacketReceive(WorldSession* session, WorldPacket const& packet) override;
 };
 
 // AoeLootManager Class End. >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> //

@@ -30,7 +30,7 @@ std::map<uint64, bool> AoeLootCommandScript::playerAoeLootDebug;
 
 // >>>>> This is the entry point. This packet triggers the AOE loot system. <<<<< //
 
-bool AoeLootManager::CanPacketReceive(WorldSession* session, WorldPacket& packet)
+bool AoeLootManager::CanPacketReceive(WorldSession* session, WorldPacket const& packet)
 {
     if (packet.GetOpcode() == CMSG_LOOT)
     {
@@ -455,7 +455,7 @@ std::pair<Loot*, bool> AoeLootCommandScript::GetLootObject(Player* player, Objec
     }
     else if (lguid.IsItem())
     {
-        Item* pItem = player->GetItemByGuid(lguid);
+        ::Item* pItem = player->GetItemByGuid(lguid);
         if (!pItem)
         {
             DebugMessage(player, fmt::format("Failed to find item {}", lguid.ToString()));
